@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HMNTY — Design Mockups</title>
+<title>HMNTY — Design System v2</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
   :root {
     --base: #1A1A2E;
     --surface: #232342;
-    --surface-raised: #2A2A4A;
     --gold: #C9A96E;
-    --gold-dim: rgba(201, 169, 110, 0.15);
-    --gold-hover: #D4B87A;
+    --gold-dim: rgba(201,169,110,0.12);
     --text-primary: #F5F0EB;
     --text-secondary: #8A8A9A;
     --text-muted: #5A5A6A;
@@ -22,1325 +20,651 @@
     --divider: rgba(255,255,255,0.06);
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
     background: #0E0E1A;
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, sans-serif;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
   }
 
-  .page-header {
-    text-align: center;
-    margin-bottom: 60px;
-    max-width: 600px;
+  /* === HEADER === */
+  .page-header { text-align:center; margin-bottom:60px; }
+  .version-badge {
+    display:inline-block; padding:4px 12px; background:var(--gold-dim);
+    border:1px solid rgba(201,169,110,0.2); border-radius:4px;
+    font-size:11px; color:var(--gold); font-weight:600; letter-spacing:2px;
+    text-transform:uppercase; margin-bottom:20px;
   }
-
   .page-header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 48px;
-    letter-spacing: 8px;
-    color: var(--gold);
-    margin-bottom: 12px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:56px;
+    letter-spacing:12px; color:var(--text-primary); margin-bottom:12px;
   }
-
+  .page-header h1 span { color:var(--gold); }
   .page-header p {
-    color: var(--text-secondary);
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    color:var(--text-secondary); font-size:14px; font-weight:400;
+    letter-spacing:3px; text-transform:uppercase;
+  }
+
+  /* === SECTIONS === */
+  .section { margin-bottom:80px; text-align:center; width:100%; max-width:1300px; }
+  .section h2 {
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px;
+    color:var(--text-primary); margin-bottom:6px;
+  }
+  .section .sub {
+    color:var(--text-secondary); font-size:13px; margin-bottom:40px;
+  }
+
+  /* === COMPARE === */
+  .compare-row { display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
+  .compare-card {
+    background:var(--surface); border-radius:16px; padding:28px 32px;
+    text-align:left; width:380px; border:1px solid var(--divider);
+  }
+  .compare-card.old { opacity:0.5; }
+  .compare-card.new { border-color:rgba(201,169,110,0.2); }
+  .compare-label {
+    font-size:10px; color:var(--text-muted); text-transform:uppercase;
+    letter-spacing:2px; font-weight:600; margin-bottom:16px;
+  }
+  .compare-card.new .compare-label { color:var(--gold); }
+  .compare-logo-old {
+    font-family:'Inter',sans-serif; font-weight:900; font-size:32px;
+    letter-spacing:6px; color:#E94560; margin-bottom:12px;
+  }
+  .compare-logo-new {
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:32px;
+    letter-spacing:6px; color:var(--text-primary); margin-bottom:12px;
+  }
+  .compare-dots { display:flex; gap:8px; margin-top:12px; }
+  .dot { width:24px; height:24px; border-radius:50%; }
+
+  /* === PALETTE === */
+  .palette-grid { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+  .swatch { width:140px; text-align:center; }
+  .swatch-box {
+    width:140px; height:80px; border-radius:10px; margin-bottom:10px;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+  .swatch-name { font-size:12px; color:var(--text-primary); font-weight:600; margin-bottom:2px; }
+  .swatch-hex { font-size:11px; color:var(--text-muted); font-family:'Space Grotesk',monospace; }
+
+  /* === TYPOGRAPHY === */
+  .type-card {
+    max-width:640px; width:100%; text-align:left; padding:36px 40px;
+    background:var(--surface); border-radius:16px; border:1px solid var(--divider);
   }
-
-  .mockup-section {
-    margin-bottom: 80px;
-    text-align: center;
-    width: 100%;
-    max-width: 1200px;
-  }
-
-  .mockup-section h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    font-size: 28px;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-    letter-spacing: 3px;
-  }
-
-  .mockup-section .subtitle {
-    color: var(--text-secondary);
-    font-size: 13px;
-    font-weight: 300;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
-  }
-
-  .phone-row {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* Phone Frame */
-  .phone {
-    width: 375px;
-    height: 812px;
-    background: var(--base);
-    border-radius: 40px;
-    overflow: hidden;
-    position: relative;
-    box-shadow:
-      0 0 0 2px rgba(201,169,110,0.1),
-      0 25px 80px rgba(0,0,0,0.6),
-      0 5px 20px rgba(0,0,0,0.4);
-    flex-shrink: 0;
-  }
-
-  .phone::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 28px;
-    background: #0E0E1A;
-    border-radius: 0 0 20px 20px;
-    z-index: 10;
-  }
-
-  .phone-content {
-    height: 100%;
-    overflow-y: auto;
-    padding-top: 48px;
-    scrollbar-width: none;
-  }
-
-  .phone-content::-webkit-scrollbar { display: none; }
-
-  /* Status Bar */
-  .status-bar {
-    padding: 0 24px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 11px;
-    color: var(--text-secondary);
-    font-weight: 500;
-  }
-
-  /* ========== SCREEN 1: HOME FEED ========== */
-
-  .feed-header {
-    padding: 8px 24px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .feed-header .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 300;
-    letter-spacing: 6px;
-    color: var(--gold);
-  }
-
-  .feed-header .icons {
-    display: flex;
-    gap: 16px;
-  }
-
-  .feed-header .icon-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    font-size: 16px;
-    position: relative;
-  }
-
-  .icon-btn .badge {
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 16px;
-    height: 16px;
-    background: var(--gold);
-    border-radius: 50%;
-    font-size: 9px;
-    color: var(--base);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-  }
-
-  .feed-greeting {
-    padding: 0 24px 24px;
-  }
-
-  .feed-greeting h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--text-primary);
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-
-  .feed-greeting p {
-    font-size: 13px;
-    color: var(--text-secondary);
-    font-weight: 300;
-  }
-
-  /* Activity Card */
-  .activity-card {
-    margin: 0 16px 16px;
-    background: var(--surface);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .card-image {
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(135deg, #2A2A4A 0%, #1A1A2E 100%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card-image.hiking {
-    background: linear-gradient(135deg, #2d3a2d 0%, #1a2e1a 50%, #1A1A2E 100%);
-  }
-
-  .card-image.coffee {
-    background: linear-gradient(135deg, #3a2d1a 0%, #2e2418 50%, #1A1A2E 100%);
-  }
-
-  .card-image.fitness {
-    background: linear-gradient(135deg, #1a2a3a 0%, #182840 50%, #1A1A2E 100%);
-  }
-
-  .card-image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60%;
-    background: linear-gradient(transparent, rgba(26,26,46,0.9));
-  }
-
-  .card-image-label {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    padding: 4px 12px;
-    background: rgba(201,169,110,0.15);
-    border: 1px solid rgba(201,169,110,0.3);
-    border-radius: 20px;
-    font-size: 11px;
-    color: var(--gold);
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .card-image-spots {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    padding: 4px 10px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 12px;
-    font-size: 11px;
-    color: var(--text-secondary);
-    font-weight: 400;
-  }
-
-  .card-image-spots span {
-    color: var(--gold);
-    font-weight: 500;
-  }
-
-  .card-body {
-    padding: 16px 18px;
-  }
-
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-  }
-
-  .card-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 14px;
-  }
-
-  .card-meta-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-weight: 300;
-  }
-
-  .card-meta-row .icon {
-    color: var(--gold);
-    width: 14px;
-    text-align: center;
-    font-size: 11px;
-  }
-
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 14px;
-    border-top: 1px solid var(--divider);
-  }
-
-  .card-host {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .card-host-avatar {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--gold-dim);
-    border: 1px solid rgba(201,169,110,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    color: var(--gold);
-    font-weight: 500;
-  }
-
-  .card-host-name {
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-weight: 400;
-  }
-
-  .card-host-name span {
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-
-  .card-distance {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 300;
-  }
-
-  /* Tab Bar */
-  .tab-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 84px;
-    background: linear-gradient(var(--surface), rgba(35,35,66,0.98));
-    backdrop-filter: blur(20px);
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding-top: 12px;
-    border-top: 1px solid var(--divider);
-  }
-
-  .tab-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    font-size: 10px;
-    color: var(--text-muted);
-    letter-spacing: 0.5px;
-    font-weight: 400;
-  }
-
-  .tab-item.active {
-    color: var(--gold);
-  }
-
-  .tab-icon {
-    font-size: 20px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-  }
-
-  .tab-item.create .tab-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--base);
-    font-size: 22px;
-    margin-top: -8px;
-    box-shadow: 0 4px 20px rgba(201,169,110,0.3);
-  }
-
-  /* ========== SCREEN 2: ACTIVITY DETAIL ========== */
-
-  .detail-hero {
-    width: 100%;
-    height: 260px;
-    background: linear-gradient(135deg, #2d3a2d 0%, #1a2e1a 50%, #1A1A2E 100%);
-    position: relative;
-  }
-
-  .detail-hero-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(transparent, var(--base));
-  }
-
-  .detail-back {
-    position: absolute;
-    top: 12px;
-    left: 16px;
-    width: 36px;
-    height: 36px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-primary);
-    font-size: 16px;
-  }
-
-  .detail-share {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    width: 36px;
-    height: 36px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-primary);
-    font-size: 16px;
-  }
-
-  .detail-content {
-    padding: 0 24px;
-    margin-top: -30px;
-    position: relative;
-  }
-
-  .detail-category-tag {
-    display: inline-block;
-    padding: 5px 14px;
-    background: var(--gold-dim);
-    border: 1px solid rgba(201,169,110,0.3);
-    border-radius: 20px;
-    font-size: 11px;
-    color: var(--gold);
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-
-  .detail-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin-bottom: 20px;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-  }
-
-  .detail-info-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 28px;
-  }
-
-  .detail-info-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .detail-info-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--surface);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gold);
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  .detail-info-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .detail-info-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
-  }
-
-  .detail-info-value {
-    font-size: 14px;
-    color: var(--text-primary);
-    font-weight: 400;
-  }
-
-  .detail-divider {
-    height: 1px;
-    background: var(--divider);
-    margin: 4px 0 24px;
-  }
-
-  .detail-description-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .detail-description {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 28px;
-  }
-
-  .detail-host-section {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px;
-    background: var(--surface);
-    border-radius: 14px;
-    margin-bottom: 28px;
-  }
-
-  .detail-host-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--gold-dim);
-    border: 2px solid rgba(201,169,110,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: var(--gold);
-    font-weight: 500;
-    font-family: 'Cormorant Garamond', serif;
-    flex-shrink: 0;
-  }
-
-  .detail-host-info {
-    flex: 1;
-  }
-
-  .detail-host-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 2px;
-  }
-
-  .detail-host-name {
-    font-size: 15px;
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-
-  .detail-host-count {
-    font-size: 11px;
-    color: var(--text-secondary);
-    font-weight: 300;
-  }
-
-  .detail-join-btn {
-    width: 100%;
-    padding: 16px;
-    background: var(--gold);
-    border: none;
-    border-radius: 14px;
-    color: var(--base);
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-bottom: 100px;
-  }
-
-  /* ========== SCREEN 3: PROFILE ========== */
-
-  .profile-header {
-    padding: 8px 24px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .profile-header .title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: var(--text-primary);
-  }
-
-  .profile-settings-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    font-size: 16px;
-  }
-
-  .profile-avatar-section {
-    text-align: center;
-    padding: 20px 24px 28px;
-  }
-
-  .profile-avatar {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-dim), rgba(201,169,110,0.25));
-    border: 2px solid rgba(201,169,110,0.4);
-    margin: 0 auto 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
-    color: var(--gold);
-    font-weight: 400;
-  }
-
-  .profile-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-    letter-spacing: 1px;
-  }
-
-  .profile-handle {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 300;
-    margin-bottom: 8px;
-  }
-
-  .profile-bio {
-    font-size: 13px;
-    color: var(--text-secondary);
-    font-weight: 300;
-    line-height: 1.6;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-
-  .profile-stats {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    margin: 24px 24px 28px;
-    background: var(--surface);
-    border-radius: 14px;
-    padding: 18px 0;
-  }
-
-  .profile-stat {
-    flex: 1;
-    text-align: center;
-    position: relative;
-  }
-
-  .profile-stat:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 4px;
-    bottom: 4px;
-    width: 1px;
-    background: var(--divider);
-  }
-
-  .profile-stat-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--gold);
-    margin-bottom: 2px;
-  }
-
-  .profile-stat-label {
-    font-size: 10px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 500;
-  }
-
-  .profile-section-label {
-    padding: 0 24px;
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 500;
-    margin-bottom: 14px;
-  }
-
-  .profile-hobbies {
-    padding: 0 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 28px;
-  }
-
-  .hobby-tag {
-    padding: 6px 14px;
-    background: var(--surface);
-    border: 1px solid var(--divider);
-    border-radius: 20px;
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-weight: 400;
-  }
-
-  .hobby-tag.primary {
-    background: var(--gold-dim);
-    border-color: rgba(201,169,110,0.3);
-    color: var(--gold);
-  }
-
-  .profile-activity-list {
-    padding: 0 16px;
-  }
-
-  .profile-activity-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px;
-    background: var(--surface);
-    border-radius: 14px;
-    margin-bottom: 10px;
-  }
-
-  .profile-activity-thumb {
-    width: 52px;
-    height: 52px;
-    background: linear-gradient(135deg, #2d3a2d, #1a2e1a);
-    border-radius: 10px;
-    flex-shrink: 0;
-  }
-
-  .profile-activity-thumb.coffee {
-    background: linear-gradient(135deg, #3a2d1a, #2e2418);
-  }
-
-  .profile-activity-info {
-    flex: 1;
-  }
-
-  .profile-activity-title {
-    font-size: 14px;
-    color: var(--text-primary);
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-
-  .profile-activity-detail {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 300;
-  }
-
-  .profile-activity-arrow {
-    color: var(--text-muted);
-    font-size: 14px;
-  }
-
-  /* ========== COLOR PALETTE SECTION ========== */
-
-  .palette-section {
-    margin-top: 40px;
-    margin-bottom: 60px;
-    max-width: 800px;
-    width: 100%;
-  }
-
-  .palette-grid {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .palette-swatch {
-    width: 140px;
-    text-align: center;
-  }
-
-  .swatch-color {
-    width: 140px;
-    height: 80px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .swatch-name {
-    font-size: 12px;
-    color: var(--text-primary);
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-
-  .swatch-hex {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 300;
-    font-family: 'SF Mono', monospace;
-  }
-
-  /* ========== TYPOGRAPHY SECTION ========== */
-
-  .type-section {
-    max-width: 600px;
-    width: 100%;
-    text-align: left;
-    padding: 40px;
-    background: var(--surface);
-    border-radius: 20px;
-    margin-bottom: 60px;
-  }
-
   .type-label {
-    font-size: 10px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    font-weight: 500;
+    font-size:10px; color:var(--text-muted); text-transform:uppercase;
+    letter-spacing:2px; font-weight:600; margin-bottom:8px;
   }
-
+  .type-font {
+    font-size:12px; color:var(--gold); font-weight:500; margin-bottom:14px;
+  }
   .type-display {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 44px;
-    font-weight: 300;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-    letter-spacing: 1px;
+    font-family:'Space Grotesk',sans-serif; font-size:44px; font-weight:700;
+    color:var(--text-primary); letter-spacing:-0.5px; margin-bottom:4px;
   }
-
   .type-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--text-primary);
-    margin-bottom: 4px;
+    font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:600;
+    color:var(--text-primary); margin-bottom:4px;
   }
-
   .type-body {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: var(--text-secondary);
-    font-weight: 300;
-    line-height: 1.7;
-    margin-bottom: 4px;
+    font-size:14px; color:var(--text-secondary); font-weight:400;
+    line-height:1.7; margin-bottom:4px;
   }
-
   .type-caption {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    font-size:11px; color:var(--text-muted); font-weight:600;
+    letter-spacing:1.5px; text-transform:uppercase;
+  }
+  .tdiv { height:1px; background:var(--divider); margin:20px 0; }
+
+  /* === PHONE === */
+  .phone-row { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; }
+  .phone-wrap { text-align:center; }
+  .phone-label {
+    margin-bottom:16px; font-size:11px; color:var(--text-muted);
+    text-transform:uppercase; letter-spacing:2px; font-weight:600;
+  }
+  .phone {
+    width:375px; height:812px; background:var(--base); border-radius:40px;
+    overflow:hidden; position:relative;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 25px 80px rgba(0,0,0,0.6);
+  }
+  .phone::before {
+    content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+    width:150px; height:28px; background:#0E0E1A; border-radius:0 0 20px 20px; z-index:10;
+  }
+  .pc { height:100%; overflow-y:auto; padding-top:48px; scrollbar-width:none; }
+  .pc::-webkit-scrollbar { display:none; }
+  .sbar {
+    padding:0 24px 12px; display:flex; justify-content:space-between;
+    font-size:12px; color:var(--text-secondary); font-weight:600;
   }
 
-  .type-divider {
-    height: 1px;
-    background: var(--divider);
-    margin: 24px 0;
+  /* Feed header */
+  .fh { padding:8px 24px 16px; display:flex; justify-content:space-between; align-items:center; }
+  .flogo {
+    font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700;
+    letter-spacing:5px; color:var(--text-primary);
+  }
+  .ficons { display:flex; gap:12px; }
+  .ibtn {
+    width:38px; height:38px; border-radius:12px; background:var(--surface);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-secondary); font-size:16px; position:relative;
+  }
+  .ibtn .bdg {
+    position:absolute; top:-3px; right:-3px; width:18px; height:18px;
+    background:var(--gold); border-radius:50%; font-size:10px; color:var(--base);
+    display:flex; align-items:center; justify-content:center; font-weight:700;
+    border:2px solid var(--base);
   }
 
-  .type-font-name {
-    font-size: 12px;
-    color: var(--gold);
-    font-weight: 400;
-    margin-bottom: 16px;
-    letter-spacing: 1px;
+  /* Greeting */
+  .greet { padding:0 24px 20px; }
+  .greet h2 {
+    font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:700;
+    color:var(--text-primary); margin-bottom:4px; letter-spacing:-0.3px;
+  }
+  .greet p { font-size:13px; color:var(--text-secondary); }
+  .greet p b { color:var(--gold); font-weight:600; }
+
+  /* Filters */
+  .filters { padding:0 24px 16px; display:flex; gap:8px; overflow-x:auto; }
+  .fpill {
+    padding:7px 16px; border-radius:8px; font-size:12px; font-weight:500;
+    white-space:nowrap; background:var(--surface); color:var(--text-secondary);
+    border:1px solid transparent;
+  }
+  .fpill.on { background:var(--gold-dim); color:var(--gold); border-color:rgba(201,169,110,0.25); }
+
+  /* Activity card */
+  .acard {
+    margin:0 16px 14px; background:var(--surface); border-radius:14px;
+    overflow:hidden; border:1px solid var(--divider);
+  }
+  .aimg { width:100%; height:160px; position:relative; }
+  .aimg.hike { background:linear-gradient(145deg,#2d3a2d,#1e3320 40%,#1A1A2E); }
+  .aimg.coff { background:linear-gradient(145deg,#3a2d1a,#2e2418 40%,#1A1A2E); }
+  .aimg.fit  { background:linear-gradient(145deg,#1a2a3a,#162845 40%,#1A1A2E); }
+  .aimg-ov {
+    position:absolute; bottom:0; left:0; right:0; height:50%;
+    background:linear-gradient(transparent,rgba(35,35,66,0.95));
+  }
+  .aimg-tag {
+    position:absolute; top:12px; left:12px; padding:4px 10px;
+    background:rgba(201,169,110,0.15); border:1px solid rgba(201,169,110,0.25);
+    border-radius:6px; font-size:10px; color:var(--gold); font-weight:700;
+    letter-spacing:1.5px; text-transform:uppercase;
+  }
+  .aimg-spots {
+    position:absolute; top:12px; right:12px; padding:4px 10px;
+    background:rgba(0,0,0,0.5); border-radius:6px; font-size:11px;
+    color:var(--text-secondary); font-weight:500;
+  }
+  .aimg-spots b { color:var(--text-primary); }
+  .abody { padding:14px 16px; }
+  .atitle {
+    font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600;
+    color:var(--text-primary); margin-bottom:8px; letter-spacing:-0.2px;
+  }
+  .ameta { display:flex; flex-direction:column; gap:5px; margin-bottom:12px; }
+  .amr { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--text-secondary); }
+  .amr .ic { color:var(--gold); width:14px; text-align:center; font-size:12px; }
+  .afoot {
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:12px; border-top:1px solid var(--divider);
+  }
+  .ahost { display:flex; align-items:center; gap:10px; }
+  .ahav {
+    width:28px; height:28px; border-radius:8px; background:var(--gold-dim);
+    display:flex; align-items:center; justify-content:center;
+    font-size:10px; color:var(--gold); font-weight:700;
+  }
+  .ahname { font-size:12px; color:var(--text-secondary); }
+  .ahname b { color:var(--text-primary); font-weight:600; }
+  .adist { font-size:11px; color:var(--text-muted); font-weight:500; }
+
+  /* Tab bar */
+  .tbar {
+    position:absolute; bottom:0; left:0; right:0; height:82px;
+    background:var(--surface); display:flex; justify-content:space-around;
+    align-items:flex-start; padding-top:12px; border-top:1px solid var(--divider);
+  }
+  .ti {
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    font-size:10px; color:var(--text-muted); font-weight:500;
+  }
+  .ti.on { color:var(--gold); }
+  .ti-icon { font-size:20px; height:24px; display:flex; align-items:center; }
+  .ti.create .ti-icon {
+    width:44px; height:44px; background:var(--gold); border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--base); font-size:24px; font-weight:700; margin-top:-6px;
+    box-shadow:0 4px 20px rgba(201,169,110,0.25);
   }
 
+  /* === DETAIL SCREEN === */
+  .dhero { width:100%; height:240px; background:linear-gradient(145deg,#2d3a2d,#1e3320 40%,#1A1A2E); position:relative; }
+  .dhero-ov { position:absolute; bottom:0; left:0; right:0; height:50%; background:linear-gradient(transparent,var(--base)); }
+  .dnav {
+    position:absolute; top:12px; width:36px; height:36px;
+    background:rgba(0,0,0,0.4); border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-primary); font-size:16px;
+  }
+  .dnav.back { left:16px; }
+  .dnav.share { right:16px; }
+  .dcontent { padding:0 24px; margin-top:-20px; position:relative; }
+  .dtag {
+    display:inline-block; padding:5px 12px; background:var(--gold-dim);
+    border:1px solid rgba(201,169,110,0.25); border-radius:6px;
+    font-size:10px; color:var(--gold); font-weight:700;
+    letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px;
+  }
+  .dtitle {
+    font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700;
+    color:var(--text-primary); margin-bottom:24px; line-height:1.15; letter-spacing:-0.5px;
+  }
+  .dinfo { display:flex; flex-direction:column; gap:14px; margin-bottom:24px; }
+  .di-item { display:flex; align-items:center; gap:14px; }
+  .di-icon {
+    width:42px; height:42px; background:var(--surface); border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold); font-size:16px; border:1px solid var(--divider);
+  }
+  .di-text { display:flex; flex-direction:column; gap:1px; }
+  .di-label { font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1.5px; font-weight:600; }
+  .di-val { font-size:14px; color:var(--text-primary); font-weight:500; }
+  .ddiv { height:1px; background:var(--divider); margin:4px 0 20px; }
+  .dsec-label { font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:2px; font-weight:700; margin-bottom:8px; }
+  .ddesc { font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:24px; }
+  .d-attendees { display:flex; align-items:center; margin-bottom:24px; }
+  .att-av {
+    width:36px; height:36px; border-radius:10px; background:var(--gold-dim);
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; color:var(--gold); font-weight:700;
+    margin-right:-8px; border:2px solid var(--base);
+  }
+  .att-more {
+    width:36px; height:36px; border-radius:10px; background:var(--surface);
+    display:flex; align-items:center; justify-content:center;
+    font-size:10px; color:var(--text-muted); font-weight:600;
+    margin-right:-8px; border:2px solid var(--base);
+  }
+  .att-count { margin-left:20px; font-size:12px; color:var(--text-secondary); }
+  .att-count b { color:var(--text-primary); }
+  .dhost {
+    display:flex; align-items:center; gap:14px; padding:14px 16px;
+    background:var(--surface); border-radius:12px; margin-bottom:24px;
+    border:1px solid var(--divider);
+  }
+  .dhost-av {
+    width:44px; height:44px; border-radius:10px; background:var(--gold-dim);
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; color:var(--gold); font-weight:700;
+  }
+  .dhost-info { flex:1; }
+  .dhost-label { font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1.5px; font-weight:600; }
+  .dhost-name { font-size:15px; color:var(--text-primary); font-weight:600; }
+  .dhost-cnt { font-size:11px; color:var(--text-secondary); }
+  .djoin {
+    width:100%; padding:16px; background:var(--gold); border:none; border-radius:12px;
+    color:var(--base); font-family:'Space Grotesk',sans-serif; font-size:15px;
+    font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:100px;
+  }
+
+  /* === PROFILE === */
+  .ph { padding:8px 24px 16px; display:flex; justify-content:space-between; align-items:center; }
+  .ph .title {
+    font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700;
+    color:var(--text-primary);
+  }
+  .ph-set {
+    width:38px; height:38px; border-radius:12px; background:var(--surface);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-secondary); font-size:16px;
+  }
+  .pav-sec { text-align:center; padding:16px 24px 24px; }
+  .pav {
+    width:88px; height:88px; border-radius:20px;
+    background:linear-gradient(135deg,var(--gold-dim),rgba(201,169,110,0.2));
+    border:2px solid rgba(201,169,110,0.3); margin:0 auto 14px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',sans-serif; font-size:32px;
+    color:var(--gold); font-weight:700;
+  }
+  .pname {
+    font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700;
+    color:var(--text-primary); margin-bottom:3px;
+  }
+  .phandle { font-size:13px; color:var(--text-muted); margin-bottom:8px; }
+  .pbio { font-size:13px; color:var(--text-secondary); line-height:1.6; max-width:280px; margin:0 auto; }
+  .pstats {
+    display:flex; margin:20px 16px 24px; background:var(--surface);
+    border-radius:12px; padding:16px 0; border:1px solid var(--divider);
+  }
+  .pstat { flex:1; text-align:center; position:relative; }
+  .pstat:not(:last-child)::after {
+    content:''; position:absolute; right:0; top:4px; bottom:4px;
+    width:1px; background:var(--divider);
+  }
+  .pstat-val {
+    font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700;
+    color:var(--gold); margin-bottom:2px;
+  }
+  .pstat-lab {
+    font-size:10px; color:var(--text-muted); text-transform:uppercase;
+    letter-spacing:1.5px; font-weight:600;
+  }
+  .pedit {
+    margin:0 20px 20px; padding:12px; background:transparent;
+    border:1px solid rgba(201,169,110,0.3); border-radius:10px;
+    color:var(--gold); font-family:'Space Grotesk',sans-serif; font-size:13px;
+    font-weight:600; letter-spacing:1px; text-transform:uppercase; text-align:center;
+  }
+  .psec-label {
+    padding:0 24px; font-size:10px; color:var(--text-muted);
+    text-transform:uppercase; letter-spacing:2px; font-weight:700; margin-bottom:12px;
+  }
+  .phobbies { padding:0 20px; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .htag {
+    padding:6px 14px; background:var(--surface); border:1px solid var(--divider);
+    border-radius:8px; font-size:12px; color:var(--text-secondary); font-weight:500;
+  }
+  .htag.pri { background:var(--gold-dim); border-color:rgba(201,169,110,0.25); color:var(--gold); }
+  .palist { padding:0 16px; }
+  .pai {
+    display:flex; align-items:center; gap:14px; padding:12px 14px;
+    background:var(--surface); border-radius:12px; margin-bottom:8px;
+    border:1px solid var(--divider);
+  }
+  .pai-thumb { width:48px; height:48px; border-radius:10px; flex-shrink:0; }
+  .pai-thumb.hike { background:linear-gradient(135deg,#2d3a2d,#1e3320); }
+  .pai-thumb.coff { background:linear-gradient(135deg,#3a2d1a,#2e2418); }
+  .pai-thumb.fit  { background:linear-gradient(135deg,#1a2a3a,#162845); }
+  .pai-info { flex:1; }
+  .pai-title { font-size:14px; color:var(--text-primary); font-weight:600; margin-bottom:3px; }
+  .pai-detail { font-size:11px; color:var(--text-muted); }
+  .pai-arrow { color:var(--text-muted); font-size:16px; }
+
+  /* === RULES === */
+  .rules-card {
+    max-width:520px; width:100%; text-align:left; padding:32px 36px;
+    background:var(--surface); border-radius:16px; border:1px solid var(--divider);
+  }
+  .rule { margin-bottom:20px; }
+  .rule:last-child { margin-bottom:0; }
+  .rule-num {
+    font-family:'Space Grotesk',sans-serif; font-size:10px; color:var(--gold);
+    font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px;
+  }
+  .rule-txt { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+  .rdiv { height:1px; background:var(--divider); margin:16px 0; }
 </style>
 </head>
 <body>
 
-  <div class="page-header">
-    <h1>HMNTY</h1>
-    <p>Design System — Luxury Refresh</p>
-  </div>
+<!-- HEADER -->
+<div class="page-header">
+  <div class="version-badge">V2 — Bold + Timeless</div>
+  <h1>HM<span>N</span>TY</h1>
+  <p>Design System Refresh</p>
+</div>
 
-  <!-- COLOR PALETTE -->
-  <div class="mockup-section">
-    <h2>Color Palette</h2>
-    <p class="subtitle">Restrained. Intentional. Every color earns its place.</p>
-    <div class="palette-grid">
-      <div class="palette-swatch">
-        <div class="swatch-color" style="background: #1A1A2E;"></div>
-        <div class="swatch-name">Base</div>
-        <div class="swatch-hex">#1A1A2E</div>
+<!-- COMPARE -->
+<div class="section">
+  <h2>The Shift</h2>
+  <p class="sub">Same bold energy. Refined palette. No rainbow.</p>
+  <div class="compare-row">
+    <div class="compare-card old">
+      <div class="compare-label">Before</div>
+      <div class="compare-logo-old">HMNTY</div>
+      <div style="font-size:13px; color:var(--text-muted);">Multiple accent colors · Coral primary · Busy</div>
+      <div class="compare-dots">
+        <div class="dot" style="background:#E94560;"></div>
+        <div class="dot" style="background:#4CAF50;"></div>
+        <div class="dot" style="background:#2196F3;"></div>
+        <div class="dot" style="background:#FF9800;"></div>
+        <div class="dot" style="background:#9C27B0;"></div>
+        <div class="dot" style="background:#00BCD4;"></div>
       </div>
-      <div class="palette-swatch">
-        <div class="swatch-color" style="background: #232342;"></div>
-        <div class="swatch-name">Surface</div>
-        <div class="swatch-hex">#232342</div>
-      </div>
-      <div class="palette-swatch">
-        <div class="swatch-color" style="background: #C9A96E;"></div>
-        <div class="swatch-name">Gold</div>
-        <div class="swatch-hex">#C9A96E</div>
-      </div>
-      <div class="palette-swatch">
-        <div class="swatch-color" style="background: #F5F0EB;"></div>
-        <div class="swatch-name">Warm White</div>
-        <div class="swatch-hex">#F5F0EB</div>
-      </div>
-      <div class="palette-swatch">
-        <div class="swatch-color" style="background: #8A8A9A;"></div>
-        <div class="swatch-name">Silver</div>
-        <div class="swatch-hex">#8A8A9A</div>
-      </div>
-      <div class="palette-swatch">
-        <div class="swatch-color" style="background: #D4636F;"></div>
-        <div class="swatch-name">Muted Coral</div>
-        <div class="swatch-hex">#D4636F</div>
-      </div>
-      <div class="palette-swatch">
-        <div class="swatch-color" style="background: #7A8B6F;"></div>
-        <div class="swatch-name">Sage</div>
-        <div class="swatch-hex">#7A8B6F</div>
+    </div>
+    <div class="compare-card new">
+      <div class="compare-label">After</div>
+      <div class="compare-logo-new">HMNTY</div>
+      <div style="font-size:13px; color:var(--text-secondary);">One accent · Gold + warm white · Clean power</div>
+      <div class="compare-dots">
+        <div class="dot" style="background:#1A1A2E;"></div>
+        <div class="dot" style="background:#232342;"></div>
+        <div class="dot" style="background:#C9A96E;"></div>
+        <div class="dot" style="background:#F5F0EB;"></div>
+        <div class="dot" style="background:#8A8A9A;"></div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- TYPOGRAPHY -->
-  <div class="mockup-section">
-    <h2>Typography</h2>
-    <p class="subtitle">Two fonts. One personality.</p>
-    <div style="display: flex; justify-content: center;">
-      <div class="type-section">
-        <div class="type-font-name">Cormorant Garamond — Headlines & Display</div>
-        <div class="type-label">Display</div>
-        <div class="type-display">Evening in Omaha</div>
-        <div class="type-divider"></div>
-        <div class="type-label">Heading</div>
-        <div class="type-heading">Saturday Morning Hike</div>
-        <div class="type-divider"></div>
-        <div class="type-font-name">Inter — Body & UI</div>
-        <div class="type-label">Body</div>
-        <div class="type-body">Join us for a sunset trail run along the Missouri River. All experience levels welcome. We'll meet at the trailhead parking lot.</div>
-        <div class="type-divider"></div>
-        <div class="type-label">Caption / Label</div>
-        <div class="type-caption">2.4 miles away · 6 spots left</div>
-      </div>
+<!-- PALETTE -->
+<div class="section">
+  <h2>Color Palette</h2>
+  <p class="sub">Disciplined. Every color has a job.</p>
+  <div class="palette-grid">
+    <div class="swatch"><div class="swatch-box" style="background:#1A1A2E;"></div><div class="swatch-name">Base</div><div class="swatch-hex">#1A1A2E</div></div>
+    <div class="swatch"><div class="swatch-box" style="background:#232342;"></div><div class="swatch-name">Surface</div><div class="swatch-hex">#232342</div></div>
+    <div class="swatch"><div class="swatch-box" style="background:#C9A96E;"></div><div class="swatch-name">Gold</div><div class="swatch-hex">#C9A96E</div></div>
+    <div class="swatch"><div class="swatch-box" style="background:#F5F0EB;"></div><div class="swatch-name">Warm White</div><div class="swatch-hex">#F5F0EB</div></div>
+    <div class="swatch"><div class="swatch-box" style="background:#8A8A9A;"></div><div class="swatch-name">Silver</div><div class="swatch-hex">#8A8A9A</div></div>
+    <div class="swatch"><div class="swatch-box" style="background:#D4636F;"></div><div class="swatch-name">Error Only</div><div class="swatch-hex">#D4636F</div></div>
+    <div class="swatch"><div class="swatch-box" style="background:#7A8B6F;"></div><div class="swatch-name">Success Only</div><div class="swatch-hex">#7A8B6F</div></div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="section">
+  <h2>Typography</h2>
+  <p class="sub">Bold headlines. Clean body. Two fonts, one voice.</p>
+  <div style="display:flex; justify-content:center;">
+    <div class="type-card">
+      <div class="type-font">Space Grotesk — Headlines &amp; Brand</div>
+      <div class="type-label">Display</div>
+      <div class="type-display">Find Your People</div>
+      <div class="tdiv"></div>
+      <div class="type-label">Heading</div>
+      <div class="type-heading">Saturday Morning Hike</div>
+      <div class="tdiv"></div>
+      <div class="type-font">Inter — Body &amp; Interface</div>
+      <div class="type-label">Body</div>
+      <div class="type-body">Join us for a sunset trail run along the Missouri River. All experience levels welcome. We'll meet at the trailhead parking lot and head out at 5:30.</div>
+      <div class="tdiv"></div>
+      <div class="type-label">Caption</div>
+      <div class="type-caption">2.4 miles away · 4 of 8 spots left</div>
     </div>
   </div>
+</div>
 
-  <!-- PHONE MOCKUPS -->
-  <div class="mockup-section">
-    <h2>Home Feed</h2>
-    <p class="subtitle">Clean. Spacious. Content-forward.</p>
-    <div class="phone-row">
+<!-- PHONES -->
+<div class="section">
+  <h2>App Screens</h2>
+  <p class="sub">Bold type. Gold accent. Content does the talking.</p>
+  <div class="phone-row">
 
-      <!-- Phone 1: Home Feed -->
-      <div class="phone">
-        <div class="phone-content">
-          <div class="status-bar">
-            <span>9:41</span>
-            <span>⚡ 84%</span>
-          </div>
-
-          <div class="feed-header">
-            <div class="logo">HMNTY</div>
-            <div class="icons">
-              <div class="icon-btn">🔔<div class="badge">3</div></div>
-              <div class="icon-btn">💬</div>
-            </div>
-          </div>
-
-          <div class="feed-greeting">
-            <h2>Good Evening, Michael</h2>
-            <p>12 activities near you this weekend</p>
-          </div>
-
-          <!-- Card 1 -->
-          <div class="activity-card">
-            <div class="card-image hiking">
-              <div class="card-image-overlay"></div>
-              <div class="card-image-label">Outdoors</div>
-              <div class="card-image-spots"><span>4</span> / 8 spots</div>
-            </div>
-            <div class="card-body">
-              <div class="card-title">Sunset Trail Run — Fontenelle Forest</div>
-              <div class="card-meta">
-                <div class="card-meta-row">
-                  <span class="icon">◷</span>
-                  Saturday, Mar 14 · 5:30 PM
-                </div>
-                <div class="card-meta-row">
-                  <span class="icon">◎</span>
-                  Fontenelle Forest, Bellevue
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="card-host">
-                  <div class="card-host-avatar">JR</div>
-                  <div class="card-host-name">Hosted by <span>Jake R.</span></div>
-                </div>
-                <div class="card-distance">2.4 mi</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="activity-card">
-            <div class="card-image coffee">
-              <div class="card-image-overlay"></div>
-              <div class="card-image-label">Social</div>
-              <div class="card-image-spots"><span>2</span> / 6 spots</div>
-            </div>
-            <div class="card-body">
-              <div class="card-title">Coffee & Deep Conversation</div>
-              <div class="card-meta">
-                <div class="card-meta-row">
-                  <span class="icon">◷</span>
-                  Sunday, Mar 15 · 10:00 AM
-                </div>
-                <div class="card-meta-row">
-                  <span class="icon">◎</span>
-                  Archetype Coffee, Blackstone
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="card-host">
-                  <div class="card-host-avatar">SM</div>
-                  <div class="card-host-name">Hosted by <span>Sarah M.</span></div>
-                </div>
-                <div class="card-distance">4.1 mi</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="activity-card">
-            <div class="card-image fitness">
-              <div class="card-image-overlay"></div>
-              <div class="card-image-label">Fitness</div>
-              <div class="card-image-spots"><span>7</span> / 12 spots</div>
-            </div>
-            <div class="card-body">
-              <div class="card-title">Morning HIIT in the Park</div>
-              <div class="card-meta">
-                <div class="card-meta-row">
-                  <span class="icon">◷</span>
-                  Saturday, Mar 14 · 7:00 AM
-                </div>
-                <div class="card-meta-row">
-                  <span class="icon">◎</span>
-                  Heartland of America Park
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="card-host">
-                  <div class="card-host-avatar">DT</div>
-                  <div class="card-host-name">Hosted by <span>Derek T.</span></div>
-                </div>
-                <div class="card-distance">6.8 mi</div>
-              </div>
-            </div>
-          </div>
-
-          <div style="height: 100px;"></div>
-        </div>
-
-        <div class="tab-bar">
-          <div class="tab-item active">
-            <div class="tab-icon">⌂</div>
-            Feed
-          </div>
-          <div class="tab-item">
-            <div class="tab-icon">◎</div>
-            Discover
-          </div>
-          <div class="tab-item create">
-            <div class="tab-icon">+</div>
-          </div>
-          <div class="tab-item">
-            <div class="tab-icon">♡</div>
-            Friends
-          </div>
-          <div class="tab-item">
-            <div class="tab-icon">○</div>
-            Profile
+    <!-- PHONE 1: HOME FEED -->
+    <div class="phone-wrap">
+      <div class="phone-label">Home Feed</div>
+      <div class="phone"><div class="pc">
+        <div class="sbar"><span>9:41</span><span>⚡ 84%</span></div>
+        <div class="fh">
+          <div class="flogo">HMNTY</div>
+          <div class="ficons">
+            <div class="ibtn">🔔<div class="bdg">3</div></div>
+            <div class="ibtn">💬</div>
           </div>
         </div>
+        <div class="greet">
+          <h2>What's happening, Michael</h2>
+          <p><b>12 activities</b> near you this weekend</p>
+        </div>
+        <div class="filters">
+          <div class="fpill on">All</div>
+          <div class="fpill">Outdoors</div>
+          <div class="fpill">Social</div>
+          <div class="fpill">Fitness</div>
+          <div class="fpill">Food</div>
+          <div class="fpill">Music</div>
+        </div>
+        <div class="acard">
+          <div class="aimg hike"><div class="aimg-ov"></div><div class="aimg-tag">Outdoors</div><div class="aimg-spots"><b>4</b> / 8 spots</div></div>
+          <div class="abody">
+            <div class="atitle">Sunset Trail Run — Fontenelle Forest</div>
+            <div class="ameta">
+              <div class="amr"><span class="ic">◷</span> Saturday, Mar 14 · 5:30 PM</div>
+              <div class="amr"><span class="ic">◎</span> Fontenelle Forest, Bellevue</div>
+            </div>
+            <div class="afoot">
+              <div class="ahost"><div class="ahav">JR</div><div class="ahname">Hosted by <b>Jake R.</b></div></div>
+              <div class="adist">2.4 mi</div>
+            </div>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="aimg coff"><div class="aimg-ov"></div><div class="aimg-tag">Social</div><div class="aimg-spots"><b>2</b> / 6 spots</div></div>
+          <div class="abody">
+            <div class="atitle">Coffee & Deep Conversation</div>
+            <div class="ameta">
+              <div class="amr"><span class="ic">◷</span> Sunday, Mar 15 · 10:00 AM</div>
+              <div class="amr"><span class="ic">◎</span> Archetype Coffee, Blackstone</div>
+            </div>
+            <div class="afoot">
+              <div class="ahost"><div class="ahav">SM</div><div class="ahname">Hosted by <b>Sarah M.</b></div></div>
+              <div class="adist">4.1 mi</div>
+            </div>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="aimg fit"><div class="aimg-ov"></div><div class="aimg-tag">Fitness</div><div class="aimg-spots"><b>7</b> / 12 spots</div></div>
+          <div class="abody">
+            <div class="atitle">Morning HIIT in the Park</div>
+            <div class="ameta">
+              <div class="amr"><span class="ic">◷</span> Saturday, Mar 14 · 7:00 AM</div>
+              <div class="amr"><span class="ic">◎</span> Heartland of America Park</div>
+            </div>
+            <div class="afoot">
+              <div class="ahost"><div class="ahav">DT</div><div class="ahname">Hosted by <b>Derek T.</b></div></div>
+              <div class="adist">6.8 mi</div>
+            </div>
+          </div>
+        </div>
+        <div style="height:100px;"></div>
       </div>
+      <div class="tbar">
+        <div class="ti on"><div class="ti-icon">⌂</div>Feed</div>
+        <div class="ti"><div class="ti-icon">◎</div>Discover</div>
+        <div class="ti create"><div class="ti-icon">+</div></div>
+        <div class="ti"><div class="ti-icon">♡</div>Friends</div>
+        <div class="ti"><div class="ti-icon">○</div>Profile</div>
+      </div></div>
+    </div>
 
-      <!-- Phone 2: Activity Detail -->
-      <div class="phone">
-        <div class="phone-content">
-          <div class="status-bar">
-            <span>9:41</span>
-            <span>⚡ 84%</span>
+    <!-- PHONE 2: DETAIL -->
+    <div class="phone-wrap">
+      <div class="phone-label">Activity Detail</div>
+      <div class="phone"><div class="pc">
+        <div class="sbar"><span>9:41</span><span>⚡ 84%</span></div>
+        <div class="dhero"><div class="dhero-ov"></div><div class="dnav back">←</div><div class="dnav share">↗</div></div>
+        <div class="dcontent">
+          <div class="dtag">Outdoors</div>
+          <div class="dtitle">Sunset Trail Run — Fontenelle Forest</div>
+          <div class="dinfo">
+            <div class="di-item"><div class="di-icon">◷</div><div class="di-text"><div class="di-label">When</div><div class="di-val">Saturday, Mar 14 · 5:30 PM</div></div></div>
+            <div class="di-item"><div class="di-icon">◎</div><div class="di-text"><div class="di-label">Where</div><div class="di-val">Fontenelle Forest, Bellevue</div></div></div>
+            <div class="di-item"><div class="di-icon">◈</div><div class="di-text"><div class="di-label">Spots</div><div class="di-val">4 of 8 remaining</div></div></div>
           </div>
-
-          <div class="detail-hero">
-            <div class="detail-hero-overlay"></div>
-            <div class="detail-back">←</div>
-            <div class="detail-share">↗</div>
+          <div class="ddiv"></div>
+          <div class="dsec-label">Going</div>
+          <div class="d-attendees">
+            <div class="att-av">JR</div><div class="att-av">KL</div><div class="att-av">AM</div><div class="att-more">+1</div>
+            <div class="att-count"><b>4 people</b> joined</div>
           </div>
-
-          <div class="detail-content">
-            <div class="detail-category-tag">Outdoors</div>
-            <div class="detail-title">Sunset Trail Run — Fontenelle Forest</div>
-
-            <div class="detail-info-grid">
-              <div class="detail-info-item">
-                <div class="detail-info-icon">◷</div>
-                <div class="detail-info-text">
-                  <div class="detail-info-label">When</div>
-                  <div class="detail-info-value">Saturday, Mar 14 · 5:30 PM</div>
-                </div>
-              </div>
-              <div class="detail-info-item">
-                <div class="detail-info-icon">◎</div>
-                <div class="detail-info-text">
-                  <div class="detail-info-label">Where</div>
-                  <div class="detail-info-value">Fontenelle Forest, Bellevue</div>
-                </div>
-              </div>
-              <div class="detail-info-item">
-                <div class="detail-info-icon">◈</div>
-                <div class="detail-info-text">
-                  <div class="detail-info-label">Spots</div>
-                  <div class="detail-info-value">4 of 8 remaining</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="detail-divider"></div>
-
-            <div class="detail-description-label">About</div>
-            <div class="detail-description">
-              Join us for a sunset trail run through Fontenelle Forest. We'll take the moderate loop trail — about 4 miles total. All paces welcome. Bring water and trail shoes. We usually grab food after.
-            </div>
-
-            <div class="detail-host-section">
-              <div class="detail-host-avatar">JR</div>
-              <div class="detail-host-info">
-                <div class="detail-host-label">Hosted by</div>
-                <div class="detail-host-name">Jake Reynolds</div>
-                <div class="detail-host-count">12 activities hosted · 4.9 ★</div>
-              </div>
-            </div>
-
-            <button class="detail-join-btn">Join Activity</button>
+          <div class="dsec-label">About</div>
+          <div class="ddesc">Join us for a sunset trail run through Fontenelle Forest. We'll take the moderate loop — about 4 miles total. All paces welcome. Bring water and trail shoes. We usually grab food after.</div>
+          <div class="dhost">
+            <div class="dhost-av">JR</div>
+            <div class="dhost-info"><div class="dhost-label">Hosted By</div><div class="dhost-name">Jake Reynolds</div><div class="dhost-cnt">12 activities · 4.9 ★</div></div>
           </div>
+          <button class="djoin">Join Activity</button>
         </div>
+      </div></div>
+    </div>
+
+    <!-- PHONE 3: PROFILE -->
+    <div class="phone-wrap">
+      <div class="phone-label">Profile</div>
+      <div class="phone"><div class="pc">
+        <div class="sbar"><span>9:41</span><span>⚡ 84%</span></div>
+        <div class="ph"><div class="title">Profile</div><div class="ph-set">⚙</div></div>
+        <div class="pav-sec">
+          <div class="pav">M</div>
+          <div class="pname">Michael Archibeque</div>
+          <div class="phandle">@michael · Omaha, NE</div>
+          <div class="pbio">Entrepreneur. Builder. Always looking for the next adventure and the people to share it with.</div>
+        </div>
+        <div class="pstats">
+          <div class="pstat"><div class="pstat-val">24</div><div class="pstat-lab">Activities</div></div>
+          <div class="pstat"><div class="pstat-val">156</div><div class="pstat-lab">Friends</div></div>
+          <div class="pstat"><div class="pstat-val">4.9</div><div class="pstat-lab">Rating</div></div>
+        </div>
+        <div class="pedit">Edit Profile</div>
+        <div class="psec-label">Interests</div>
+        <div class="phobbies">
+          <div class="htag pri">Fitness</div><div class="htag pri">Outdoors</div>
+          <div class="htag">Coffee</div><div class="htag">Networking</div>
+          <div class="htag">Running</div><div class="htag">Photography</div>
+        </div>
+        <div class="psec-label">Upcoming</div>
+        <div class="palist">
+          <div class="pai"><div class="pai-thumb hike"></div><div class="pai-info"><div class="pai-title">Sunset Trail Run</div><div class="pai-detail">Sat, Mar 14 · 5:30 PM</div></div><div class="pai-arrow">›</div></div>
+          <div class="pai"><div class="pai-thumb coff"></div><div class="pai-info"><div class="pai-title">Coffee & Conversation</div><div class="pai-detail">Sun, Mar 15 · 10:00 AM</div></div><div class="pai-arrow">›</div></div>
+          <div class="pai"><div class="pai-thumb fit"></div><div class="pai-info"><div class="pai-title">Morning HIIT</div><div class="pai-detail">Sat, Mar 21 · 7:00 AM</div></div><div class="pai-arrow">›</div></div>
+        </div>
+        <div style="height:100px;"></div>
       </div>
+      <div class="tbar">
+        <div class="ti"><div class="ti-icon">⌂</div>Feed</div>
+        <div class="ti"><div class="ti-icon">◎</div>Discover</div>
+        <div class="ti create"><div class="ti-icon">+</div></div>
+        <div class="ti"><div class="ti-icon">♡</div>Friends</div>
+        <div class="ti on"><div class="ti-icon">○</div>Profile</div>
+      </div></div>
+    </div>
 
-      <!-- Phone 3: Profile -->
-      <div class="phone">
-        <div class="phone-content">
-          <div class="status-bar">
-            <span>9:41</span>
-            <span>⚡ 84%</span>
-          </div>
+  </div>
+</div>
 
-          <div class="profile-header">
-            <div class="title">Profile</div>
-            <div class="profile-settings-btn">⚙</div>
-          </div>
-
-          <div class="profile-avatar-section">
-            <div class="profile-avatar">M</div>
-            <div class="profile-name">Michael Archibeque</div>
-            <div class="profile-handle">@michael · Omaha, NE</div>
-            <div class="profile-bio">Entrepreneur. Builder. Always looking for the next adventure and the people to share it with.</div>
-          </div>
-
-          <div class="profile-stats">
-            <div class="profile-stat">
-              <div class="profile-stat-value">24</div>
-              <div class="profile-stat-label">Activities</div>
-            </div>
-            <div class="profile-stat">
-              <div class="profile-stat-value">156</div>
-              <div class="profile-stat-label">Friends</div>
-            </div>
-            <div class="profile-stat">
-              <div class="profile-stat-value">4.9</div>
-              <div class="profile-stat-label">Rating</div>
-            </div>
-          </div>
-
-          <div class="profile-section-label">Interests</div>
-          <div class="profile-hobbies">
-            <div class="hobby-tag primary">Fitness</div>
-            <div class="hobby-tag primary">Outdoors</div>
-            <div class="hobby-tag">Coffee</div>
-            <div class="hobby-tag">Networking</div>
-            <div class="hobby-tag">Running</div>
-            <div class="hobby-tag">Photography</div>
-          </div>
-
-          <div class="profile-section-label">Recent Activities</div>
-          <div class="profile-activity-list">
-            <div class="profile-activity-item">
-              <div class="profile-activity-thumb"></div>
-              <div class="profile-activity-info">
-                <div class="profile-activity-title">Sunset Trail Run</div>
-                <div class="profile-activity-detail">Mar 14 · Fontenelle Forest</div>
-              </div>
-              <div class="profile-activity-arrow">›</div>
-            </div>
-            <div class="profile-activity-item">
-              <div class="profile-activity-thumb coffee"></div>
-              <div class="profile-activity-info">
-                <div class="profile-activity-title">Coffee & Conversation</div>
-                <div class="profile-activity-detail">Mar 15 · Archetype Coffee</div>
-              </div>
-              <div class="profile-activity-arrow">›</div>
-            </div>
-          </div>
-
-          <div style="height: 100px;"></div>
-        </div>
-
-        <div class="tab-bar">
-          <div class="tab-item">
-            <div class="tab-icon">⌂</div>
-            Feed
-          </div>
-          <div class="tab-item">
-            <div class="tab-icon">◎</div>
-            Discover
-          </div>
-          <div class="tab-item create">
-            <div class="tab-icon">+</div>
-          </div>
-          <div class="tab-item">
-            <div class="tab-icon">♡</div>
-            Friends
-          </div>
-          <div class="tab-item active">
-            <div class="tab-icon">○</div>
-            Profile
-          </div>
-        </div>
-      </div>
-
+<!-- RULES -->
+<div class="section">
+  <h2>Design Rules</h2>
+  <p class="sub">The constraints that keep it consistent.</p>
+  <div style="display:flex; justify-content:center;">
+    <div class="rules-card">
+      <div class="rule"><div class="rule-num">01 — One Accent</div><div class="rule-txt">Gold is the only accent color. Buttons, active states, highlights, badges — all gold. No rainbow categories.</div></div>
+      <div class="rdiv"></div>
+      <div class="rule"><div class="rule-num">02 — Bold, Not Decorative</div><div class="rule-txt">Space Grotesk for headlines — geometric, modern, confident. Inter for everything else. No serifs, no scripts, no frills.</div></div>
+      <div class="rdiv"></div>
+      <div class="rule"><div class="rule-num">03 — Content Brings Color</div><div class="rule-txt">User photos and activity images are where vibrancy lives. The UI chrome stays neutral and lets content pop.</div></div>
+      <div class="rdiv"></div>
+      <div class="rule"><div class="rule-num">04 — Functional Color Only</div><div class="rule-txt">Coral = errors and destructive actions. Sage = success and confirmations. Never used decoratively.</div></div>
+      <div class="rdiv"></div>
+      <div class="rule"><div class="rule-num">05 — Breathe</div><div class="rule-txt">Space is confidence. Generous padding, clean gaps, no cramming. If a screen feels busy, remove — don't rearrange.</div></div>
     </div>
   </div>
-
-  <!-- DESIGN PRINCIPLES -->
-  <div class="mockup-section">
-    <h2>Design Rules</h2>
-    <p class="subtitle">The constraints that create the luxury.</p>
-    <div style="display: flex; justify-content: center;">
-      <div class="type-section" style="max-width: 500px;">
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-          <div>
-            <div class="type-label" style="color: var(--gold); margin-bottom: 6px;">Rule 1</div>
-            <div class="type-body">Gold is the only accent. Buttons, active states, highlights — all gold. No rainbow categories.</div>
-          </div>
-          <div class="type-divider"></div>
-          <div>
-            <div class="type-label" style="color: var(--gold); margin-bottom: 6px;">Rule 2</div>
-            <div class="type-body">Coral is functional only. Errors, destructive actions, unread badges. Never decorative.</div>
-          </div>
-          <div class="type-divider"></div>
-          <div>
-            <div class="type-label" style="color: var(--gold); margin-bottom: 6px;">Rule 3</div>
-            <div class="type-body">Content brings the color. User photos and imagery — that's where vibrancy lives. The UI itself stays neutral.</div>
-          </div>
-          <div class="type-divider"></div>
-          <div>
-            <div class="type-label" style="color: var(--gold); margin-bottom: 6px;">Rule 4</div>
-            <div class="type-body">Headlines are Cormorant Garamond. Body is Inter. No exceptions. No third font.</div>
-          </div>
-          <div class="type-divider"></div>
-          <div>
-            <div class="type-label" style="color: var(--gold); margin-bottom: 6px;">Rule 5</div>
-            <div class="type-body">Space is luxury. When in doubt, add padding. Nothing should feel cramped.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
 </body>
 </html>
