@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HMNTY — App Store & Social Assets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+  :root{--base:#1A1A2E;--surface:#232342;--gold:#C9A96E;--gold-dim:rgba(201,169,110,0.12);--text-primary:#F5F0EB;--text-secondary:#8A8A9A;--text-muted:#5A5A6A;--divider:rgba(255,255,255,0.06)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0E0E1A;font-family:'Inter',sans-serif;color:var(--text-primary);padding:40px 20px;display:flex;flex-direction:column;align-items:center}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;letter-spacing:8px;margin-bottom:8px}
+  h1 span{color:var(--gold)}
+  .psub{color:var(--text-secondary);font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:60px}
+  .slbl{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+  .ssub{color:var(--text-secondary);font-size:13px;margin-bottom:40px}
+  .row{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-bottom:80px}
+
+  /* App Store Screenshot Frame */
+  .ss{width:320px;height:693px;background:var(--base);border-radius:32px;overflow:hidden;position:relative;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+  .ss-text{padding:48px 28px 24px;text-align:center;flex-shrink:0}
+  .ss-h{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:var(--text-primary);line-height:1.15;margin-bottom:10px;letter-spacing:-0.3px}
+  .ss-p{font-size:14px;color:var(--text-secondary);line-height:1.5}
+  .ss-p b{color:var(--gold);font-weight:600}
+  .ss-phone-area{flex:1;display:flex;justify-content:center;align-items:flex-end;padding:0 20px;overflow:hidden}
+  .sp{width:260px;background:var(--surface);border-radius:24px 24px 0 0;overflow:hidden;border:1px solid var(--divider);border-bottom:none}
+  .spc{padding:16px}
+
+  /* Mini UI elements */
+  .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .mlogo{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;color:var(--text-primary)}
+  .micons{display:flex;gap:8px}
+  .micon{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:12px}
+  .mgreet{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:4px}
+  .msub{font-size:11px;color:var(--text-secondary);margin-bottom:12px}
+  .msub b{color:var(--gold)}
+  .mfilters{display:flex;gap:6px;margin-bottom:12px}
+  .mpill{padding:4px 10px;border-radius:6px;font-size:10px;font-weight:500;background:rgba(255,255,255,0.04);color:var(--text-muted)}
+  .mpill.on{background:var(--gold-dim);color:var(--gold)}
+  .mc{background:var(--base);border-radius:10px;overflow:hidden;margin-bottom:10px;border:1px solid var(--divider)}
+  .mci{height:80px;width:100%;position:relative}
+  .mci.hike{background:linear-gradient(145deg,#2d3a2d,#1e3320 40%,#1A1A2E)}
+  .mci.coff{background:linear-gradient(145deg,#3a2d1a,#2e2418 40%,#1A1A2E)}
+  .mci.fit{background:linear-gradient(145deg,#1a2a3a,#162845 40%,#1A1A2E)}
+  .mci-ov{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(transparent,rgba(26,26,46,0.9))}
+  .mci-tag{position:absolute;top:8px;left:8px;padding:2px 8px;background:rgba(201,169,110,0.15);border:1px solid rgba(201,169,110,0.25);border-radius:4px;font-size:8px;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+  .mcb{padding:10px 12px}
+  .mct{font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--text-primary);margin-bottom:4px}
+  .mcm{font-size:9px;color:var(--text-muted)}
+  .mcm b{color:var(--gold)}
+
+  /* Detail mini */
+  .mdh{height:120px;position:relative;background:linear-gradient(145deg,#2d3a2d,#1e3320 40%,#1A1A2E)}
+  .mdh-ov{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(transparent,var(--surface))}
+  .mdc{padding:12px 16px}
+  .mdtag{display:inline-block;padding:3px 8px;background:var(--gold-dim);border:1px solid rgba(201,169,110,0.25);border-radius:4px;font-size:8px;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+  .mdtitle{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:14px;line-height:1.2}
+  .mdi{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+  .mdi-r{display:flex;align-items:center;gap:10px}
+  .mdi-ic{width:32px;height:32px;background:var(--base);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:12px;border:1px solid var(--divider)}
+  .mdi-l{font-size:8px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+  .mdi-v{font-size:11px;color:var(--text-primary);font-weight:500}
+  .mjoin{width:100%;padding:10px;background:var(--gold);border:none;border-radius:8px;color:var(--base);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-align:center;margin-top:14px}
+
+  /* Profile mini */
+  .mpav{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--gold-dim),rgba(201,169,110,0.2));border:2px solid rgba(201,169,110,0.3);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:22px;color:var(--gold);font-weight:700}
+  .mpname{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--text-primary);text-align:center;margin-bottom:2px}
+  .mphandle{font-size:10px;color:var(--text-muted);text-align:center;margin-bottom:6px}
+  .mpbio{font-size:10px;color:var(--text-secondary);text-align:center;line-height:1.5;margin-bottom:14px}
+  .mpstats{display:flex;background:var(--base);border-radius:10px;padding:12px 0;margin-bottom:14px;border:1px solid var(--divider)}
+  .mps{flex:1;text-align:center}
+  .mps-v{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--gold);margin-bottom:1px}
+  .mps-l{font-size:8px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+  .mhobbies{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+  .mht{padding:4px 10px;border-radius:6px;font-size:9px;font-weight:500;background:rgba(255,255,255,0.04);color:var(--text-secondary);border:1px solid var(--divider)}
+  .mht.pri{background:var(--gold-dim);border-color:rgba(201,169,110,0.25);color:var(--gold)}
+
+  /* Discover mini map */
+  .mmap{height:140px;background:linear-gradient(180deg,#1a2a20,#1A1A2E);border-radius:10px;position:relative;margin-bottom:12px;border:1px solid var(--divider)}
+  .mpin{position:absolute;width:20px;height:20px;border-radius:6px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:10px;box-shadow:0 2px 8px rgba(201,169,110,0.3)}
+
+  /* Social frames */
+  .sf{border-radius:16px;overflow:hidden;position:relative;box-shadow:0 15px 40px rgba(0,0,0,0.4)}
+  .sf.igp{width:400px;height:400px;background:var(--base)}
+  .sf.igs{width:270px;height:480px;background:var(--base)}
+  .sf-inner{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px;text-align:center;position:relative}
+  .sf-glow{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+  .sf-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:8px;color:var(--text-primary);position:relative;z-index:1}
+  .sf-tag{font-family:'Space Grotesk',sans-serif;color:var(--text-secondary);position:relative;z-index:1}
+  .sf-cta{padding:10px 24px;background:var(--gold);border-radius:8px;color:var(--base);font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;position:relative;z-index:1}
+  .sf-handle{font-size:12px;color:var(--text-muted);position:relative;z-index:1}
+</style>
+</head>
+<body>
+
+<h1>HM<span>N</span>TY</h1>
+<p class="psub">App Store & Social Assets</p>
+
+<!-- APP STORE SCREENSHOTS -->
+<div class="slbl">App Store Screenshots</div>
+<p class="ssub">The first 4 frames users see in the App Store</p>
+
+<div class="row">
+
+  <!-- SS1: Hero -->
+  <div class="ss">
+    <div class="ss-text">
+      <div class="ss-h">Find Your People.<br>Do Your Thing.</div>
+      <div class="ss-p">Post activities. Friends join. <b>Real life happens.</b></div>
+    </div>
+    <div class="ss-phone-area"><div class="sp"><div class="spc">
+      <div class="mh"><div class="mlogo">HMNTY</div><div class="micons"><div class="micon">🔔</div><div class="micon">💬</div></div></div>
+      <div class="mgreet">What's happening, Michael</div>
+      <div class="msub"><b>12 activities</b> near you</div>
+      <div class="mfilters"><div class="mpill on">All</div><div class="mpill">Outdoors</div><div class="mpill">Social</div><div class="mpill">Fitness</div></div>
+      <div class="mc"><div class="mci hike"><div class="mci-ov"></div><div class="mci-tag">Outdoors</div></div><div class="mcb"><div class="mct">Sunset Trail Run</div><div class="mcm"><b>◷</b> Saturday · 5:30 PM · <b>2.4 mi</b></div></div></div>
+      <div class="mc"><div class="mci coff"><div class="mci-ov"></div><div class="mci-tag">Social</div></div><div class="mcb"><div class="mct">Coffee & Conversation</div><div class="mcm"><b>◷</b> Sunday · 10 AM · <b>4.1 mi</b></div></div></div>
+    </div></div></div>
+  </div>
+
+  <!-- SS2: Detail -->
+  <div class="ss">
+    <div class="ss-text">
+      <div class="ss-h">See the Details.<br>Join in Seconds.</div>
+      <div class="ss-p">Who's going, when, where — <b>one tap to join.</b></div>
+    </div>
+    <div class="ss-phone-area"><div class="sp">
+      <div class="mdh"><div class="mdh-ov"></div></div>
+      <div class="mdc">
+        <div class="mdtag">Outdoors</div>
+        <div class="mdtitle">Sunset Trail Run</div>
+        <div class="mdi">
+          <div class="mdi-r"><div class="mdi-ic">◷</div><div><div class="mdi-l">When</div><div class="mdi-v">Sat, Mar 14 · 5:30 PM</div></div></div>
+          <div class="mdi-r"><div class="mdi-ic">◎</div><div><div class="mdi-l">Where</div><div class="mdi-v">Fontenelle Forest</div></div></div>
+          <div class="mdi-r"><div class="mdi-ic">◈</div><div><div class="mdi-l">Spots</div><div class="mdi-v">4 of 8 left</div></div></div>
+        </div>
+        <div class="mjoin">Join Activity</div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- SS3: Profile -->
+  <div class="ss">
+    <div class="ss-text">
+      <div class="ss-h">Your Profile.<br>Your Reputation.</div>
+      <div class="ss-p">Hobbies, history, ratings — <b>build your presence.</b></div>
+    </div>
+    <div class="ss-phone-area"><div class="sp"><div class="spc" style="text-align:center;">
+      <div style="height:8px;"></div>
+      <div class="mpav">M</div>
+      <div class="mpname">Michael Archibeque</div>
+      <div class="mphandle">@michael · Omaha, NE</div>
+      <div class="mpbio">Entrepreneur. Builder. Always looking for the next adventure.</div>
+      <div class="mpstats"><div class="mps"><div class="mps-v">24</div><div class="mps-l">Activities</div></div><div class="mps"><div class="mps-v">156</div><div class="mps-l">Friends</div></div><div class="mps"><div class="mps-v">4.9</div><div class="mps-l">Rating</div></div></div>
+      <div style="text-align:left;"><div style="font-size:8px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:8px;">Interests</div>
+      <div class="mhobbies"><div class="mht pri">Fitness</div><div class="mht pri">Outdoors</div><div class="mht">Coffee</div><div class="mht">Networking</div><div class="mht">Running</div></div></div>
+    </div></div></div>
+  </div>
+
+  <!-- SS4: Discover -->
+  <div class="ss">
+    <div class="ss-text">
+      <div class="ss-h">Discover What's<br>Near You.</div>
+      <div class="ss-p">Map view, filters, distance — <b>find your scene.</b></div>
+    </div>
+    <div class="ss-phone-area"><div class="sp"><div class="spc">
+      <div class="mh"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--text-primary);">Discover</div><div class="micons"><div class="micon" style="font-size:10px;">☰</div></div></div>
+      <div class="mmap">
+        <div class="mpin" style="top:30px;left:40px;">🏃</div>
+        <div class="mpin" style="top:60px;left:140px;">☕</div>
+        <div class="mpin" style="top:45px;right:50px;">💪</div>
+        <div class="mpin" style="top:90px;left:80px;">🎸</div>
+        <div class="mpin" style="bottom:30px;right:70px;">🍕</div>
+      </div>
+      <div class="mfilters"><div class="mpill on">&lt; 5 mi</div><div class="mpill">Today</div><div class="mpill">All</div></div>
+      <div class="mc"><div class="mcb"><div class="mct">☕ Coffee & Conversation</div><div class="mcm">Archetype Coffee · <b>4.1 mi</b> · Sun 10 AM</div></div></div>
+      <div class="mc"><div class="mcb"><div class="mct">🏃 Sunset Trail Run</div><div class="mcm">Fontenelle Forest · <b>2.4 mi</b> · Sat 5:30 PM</div></div></div>
+    </div></div></div>
+  </div>
+
+</div>
+
+<!-- SOCIAL MEDIA TEMPLATES -->
+<div class="slbl">Social Media Templates</div>
+<p class="ssub">Instagram post, story, and feature highlight</p>
+
+<div class="row">
+
+  <!-- IG Post: Launch -->
+  <div class="sf igp" style="background:linear-gradient(145deg,var(--base),#0E0E1A);">
+    <div class="sf-inner">
+      <div class="sf-glow"></div>
+      <div class="sf-logo" style="font-size:40px;margin-bottom:20px;">HMNTY</div>
+      <div class="sf-tag" style="font-size:20px;font-weight:600;margin-bottom:8px;color:var(--text-primary);">Find Your People.</div>
+      <div class="sf-tag" style="font-size:14px;margin-bottom:28px;">The social network for real life.</div>
+      <div class="sf-cta" style="font-size:13px;margin-bottom:20px;">Download Now</div>
+      <div class="sf-handle">@hmnty_app</div>
+    </div>
+  </div>
+
+  <!-- IG Story: Feature -->
+  <div class="sf igs" style="background:var(--surface);">
+    <div class="sf-inner" style="justify-content:flex-start;padding:40px 24px;">
+      <div class="sf-glow" style="top:20%;left:50%;"></div>
+      <div class="sf-logo" style="font-size:20px;letter-spacing:5px;margin-bottom:32px;">HMNTY</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--text-primary);line-height:1.2;margin-bottom:16px;position:relative;z-index:1;text-align:left;width:100%;">
+        Post an activity.<br><span style="color:var(--gold);">Friends join.</span><br>Go do it.
+      </div>
+      <div style="font-size:14px;color:var(--text-secondary);margin-bottom:auto;position:relative;z-index:1;text-align:left;width:100%;">It's that simple.</div>
+      <div style="position:relative;z-index:1;width:100%;">
+        <div class="sf-cta" style="font-size:12px;text-align:center;width:100%;">Get the App</div>
+        <div class="sf-handle" style="text-align:center;margin-top:12px;">@hmnty_app</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IG Post: Value Props -->
+  <div class="sf igp" style="background:var(--base);">
+    <div class="sf-inner" style="padding:36px;">
+      <div class="sf-glow" style="width:300px;height:300px;"></div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--gold);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1;">Why HMNTY?</div>
+      <div style="text-align:left;width:100%;position:relative;z-index:1;">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px;">
+          <div style="width:44px;height:44px;background:var(--gold-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📍</div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:2px;">Local & Real</div><div style="font-size:11px;color:var(--text-secondary);">Activities near you, with real people</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px;">
+          <div style="width:44px;height:44px;background:var(--gold-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">⚡</div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:2px;">One Tap to Join</div><div style="font-size:11px;color:var(--text-secondary);">No DMs, no maybes. Just show up.</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:44px;height:44px;background:var(--gold-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🤝</div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:2px;">Build Your Crew</div><div style="font-size:11px;color:var(--text-secondary);">Find people who share your hobbies</div></div>
+        </div>
+      </div>
+      <div class="sf-handle" style="margin-top:auto;padding-top:20px;">@hmnty_app</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
