@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- HMNTY Icon Mark: Stylized H with connected nodes (people/connection concept) -->
+  <rect width="400" height="400" rx="80" fill="#1A1A2E"/>
+  
+  <!-- Left vertical of H -->
+  <rect x="100" y="80" width="32" height="240" rx="16" fill="#C9A96E"/>
+  <!-- Right vertical of H -->
+  <rect x="268" y="80" width="32" height="240" rx="16" fill="#C9A96E"/>
+  <!-- Horizontal crossbar of H -->
+  <rect x="100" y="184" width="200" height="32" rx="16" fill="#C9A96E"/>
+  
+  <!-- Connection nodes (people dots) -->
+  <circle cx="116" cy="72" r="18" fill="#C9A96E" opacity="0.9"/>
+  <circle cx="284" cy="72" r="18" fill="#C9A96E" opacity="0.9"/>
+  <circle cx="116" cy="328" r="18" fill="#C9A96E" opacity="0.9"/>
+  <circle cx="284" cy="328" r="18" fill="#C9A96E" opacity="0.9"/>
+  
+  <!-- Diagonal connection lines (subtle network effect) -->
+  <line x1="130" y1="78" x2="268" y2="184" stroke="#C9A96E" stroke-width="3" opacity="0.25"/>
+  <line x1="270" y1="78" x2="132" y2="184" stroke="#C9A96E" stroke-width="3" opacity="0.25"/>
+  <line x1="130" y1="322" x2="268" y2="216" stroke="#C9A96E" stroke-width="3" opacity="0.25"/>
+  <line x1="270" y1="322" x2="132" y2="216" stroke="#C9A96E" stroke-width="3" opacity="0.25"/>
+</svg>

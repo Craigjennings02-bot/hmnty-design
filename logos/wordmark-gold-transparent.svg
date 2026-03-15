@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+    </style>
+  </defs>
+  <rect width="600" height="160" rx="0" fill="none"/>
+  <text x="300" y="108" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="88" fill="#C9A96E" text-anchor="middle" letter-spacing="12">HMNTY</text>
+</svg>

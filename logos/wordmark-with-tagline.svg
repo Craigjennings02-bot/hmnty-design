@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" width="600" height="220">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&amp;display=swap');
+    </style>
+  </defs>
+  <rect width="600" height="220" fill="#1A1A2E"/>
+  <text x="300" y="110" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="88" fill="#C9A96E" text-anchor="middle" letter-spacing="12">HMNTY</text>
+  <text x="300" y="165" font-family="'Space Grotesk', sans-serif" font-weight="400" font-size="22" fill="#F5F0EB" text-anchor="middle" letter-spacing="6" opacity="0.7">REAL LIFE. REAL PEOPLE.</text>
+</svg>
